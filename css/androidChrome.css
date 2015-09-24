@@ -1,0 +1,46 @@
+.iScroller { width: 783px !important; }
+.iScroller div {
+    width: 783px !important;
+}
+#content { width: 783px !important; }
+.sliderDisplay { width: 783px !important; }
+#maingame #canvasOverlay { width: 783px !important; }
+.slider { width: 783px !important; }
+.rouletteWheelBackground { width: 783px !important; }
+
+.sliderHolder {
+    -webkit-transform: translate3d(-783px,0,0);
+    -moz-transform: translate3d(-783px,0,0);
+    -ms-transform: translate3d(-783px,0,0);
+    -o-transform: translate3d(-783px,0,0);
+    transform: translate3d(-783px,0,0);
+}
+
+.bettable {
+    background: url('../img/bettable-green_ios7.jpg') no-repeat 0 -2px !important;
+}
+
+.bg_purple {
+    background: url('../img/purple_wheel_ios7.png') 0 0 no-repeat !important;
+}
+
+.bg_green {
+    background: url('../img/green_wheel_ios7.png') 0 0 no-repeat !important;
+}
+
+.bg_red {
+    background: url('../img/red_wheel_ios7.png') 0 0 no-repeat !important;
+}
+
+.bg_blue {
+    background: url('../img/blue_wheel_ios7.png') 0 0 no-repeat !important;
+}
+
+
+#preloader {
+    background: #000 url('../img/preloader_bg.png') center top no-repeat !important;
+}
+
+.history, .paytable, .options {
+    background: url('../img/bg_history_ios7.jpg') no-repeat 0px 0px;
+}

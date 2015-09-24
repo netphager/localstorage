@@ -1,0 +1,147 @@
+.iScroller { width: 783px !important; }
+.iScroller div {
+	width: 783px !important;
+}
+#content { width: 783px !important; }
+.sliderDisplay { width: 783px !important; }
+#maingame #canvasOverlay { width: 783px !important; }
+/*.slider { width: 783px !important; }*/
+.rouletteWheelBackground { width: 783px !important; }
+
+.sliderHolder {
+	-webkit-transform: translate3d(-795px,0,0);
+	-moz-transform: translate3d(-795px,0,0);
+	-ms-transform: translate3d(-795px,0,0);
+	-o-transform: translate3d(-795px,0,0);
+	transform: translate3d(-795px,0,0);
+}
+.chips_list {width: 554px;}
+.betInfo {
+	width: 153px !important;
+	margin-right: 29px !important;
+	margin-top:4px !important;
+}
+.bettable_nav {
+	transform:scale(0.95) !important;
+	padding-top:0px !important;
+
+}
+.slider {
+	width: 710px !important;
+}
+.screen_header button {
+	left: 21px;
+}
+.bettable {
+	/*left: -10px;*/
+	background: url('../img/bettable-green_ios7.jpg') no-repeat 0 -2px !important;
+}
+
+.bg_purple {
+	background: url('../img/purple_wheel_ios7.png') 0 0 no-repeat !important;
+}
+
+.bg_green {
+	background: url('../img/green_wheel_ios7.png') 0 0 no-repeat !important;
+}
+
+.bg_red {
+	background: url('../img/red_wheel_ios7.png') 0 0 no-repeat !important;
+}
+
+.bg_blue {
+	background: url('../img/blue_wheel_ios7.png') 0 0 no-repeat !important;
+}
+
+
+#preloader {
+	background: #000 url('../img/preloader_bg.png') center top no-repeat !important;
+}
+
+.history, .paytable, .options {
+	background: url('../img/bg_history_ios7.jpg') no-repeat 0px 0px;
+}
+.paytable_content {
+	margin-left: 112px;
+}
+
+
+.nav_button_spin.big {
+	background: url('../img/buttons.png'),url('../img/buttons.png');
+	background-repeat:  no-repeat, no-repeat;
+	background-position: -381px -14px ,-692px -7px;
+	/*margin-left: 7px;*/
+}
+.nav_button_spin.big.active {
+	background: url('../img/buttons.png'),url('../img/buttons.png');
+	background-repeat:  no-repeat, no-repeat;
+	background-position: -378px -11px,-847px -5px;
+}
+
+#buttonRebetSpin.big {
+	background: url('../img/buttons.png'),url('../img/buttons.png');
+	background-repeat:  no-repeat, no-repeat;
+	background-position: -207px -11px ,-692px -7px;
+}
+#buttonRebetSpin.big.active {
+	background: url('../img/buttons.png'),url('../img/buttons.png');
+	background-repeat:  no-repeat, no-repeat;
+	background-position: -204px -8px,-847px -5px;
+}
+
+#buttonUndo.big {
+	/*margin-top: 2px;*/
+	background: url('../img/buttons.png'),url('../img/buttons.png');
+	background-position: -418px -106px,-690px -120px;
+	background-repeat:  no-repeat, no-repeat;
+}
+#buttonUndo.big.active {
+	background: url('../img/buttons.png'),url('../img/buttons.png');
+	background-position: -415px -103px,-846px -118px;
+	background-repeat:  no-repeat, no-repeat;
+}
+
+#buttonRebet2.big {
+	background: url('../img/buttons.png'),url('../img/buttons.png');
+	background-position: -316px -104px,-690px -120px;
+	background-repeat:  no-repeat, no-repeat;
+}
+#buttonRebet2.big.active {
+	background: url('../img/buttons.png'),url('../img/buttons.png');
+	background-position: -313px -101px,-846px -118px;
+	background-repeat:  no-repeat, no-repeat;
+}
+
+#buttonClear.big {
+	background: url('../img/buttons.png'),url('../img/buttons.png');
+	background-position: -535px -103px,-690px -119px;
+	background-repeat:  no-repeat, no-repeat;
+}
+#buttonClear.big.active {
+	background: url('../img/buttons.png'),url('../img/buttons.png');
+	background-position: -532px -100px,-846px -117px;
+	background-repeat:  no-repeat, no-repeat;
+}
+#buttonRebet.big {
+	background: url('../img/buttons.png'),url('../img/buttons.png');
+	background-position: -207px -101px,-691px -120px;
+	background-repeat:  no-repeat, no-repeat;
+	/*margin-left: 7px;*/
+}
+#buttonRebet.big.active {
+	background: url('../img/buttons.png'),url('../img/buttons.png');
+	background-position: -204px -98px,-846px -119px;
+	background-repeat:  no-repeat, no-repeat;
+}
+
+#new_bet_btn.big {
+	background: url('../img/buttons.png'),url('../img/buttons.png');
+	background-position: -543px -22px,-691px -120px;
+	background-repeat:  no-repeat, no-repeat;
+	/*height: 90px;*/
+}
+#new_bet_btn.big.active {
+	background: url('../img/buttons.png'),url('../img/buttons.png');
+	background-position: -540px -19px,-848px -118px;
+	background-repeat:  no-repeat, no-repeat;
+}

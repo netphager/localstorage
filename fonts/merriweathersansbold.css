@@ -1,0 +1,10 @@
+@font-face {
+	font-family: 'MerriweatherSans-Bold';
+	src: url('merriweathersansbold.eot');
+	src: url('merriweathersansbold.eot?#iefix') format('embedded-opentype'),
+		 url('merriweathersansbold.woff') format('woff'),
+		 url('merriweathersansbold.ttf') format('truetype'),
+		 url('merriweathersansbold.svg#merriweathersansbold') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}

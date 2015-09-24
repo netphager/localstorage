@@ -1,0 +1,23 @@
+#stage {  
+  display: block;  
+  margin: 0;  
+  padding: 0;  
+  margin: 0 auto;  
+}
+.slider-frame {  
+  position: relative;  
+  display: block;  
+  margin: 0;  
+  padding: 0;  
+}
+.slider-frame .slider-button {  
+  margin: 0;  
+  padding: 0;  
+  -webkit-transition: all 0.25s ease-in-out;  
+  -moz-transition: all 0.25s ease-in-out;  
+  transition: all 0.25s ease-in-out;  
+  cursor: pointer;  
+}  
+.slider-frame .slider-button.on {  
+  margin-left: 82px;  
+}

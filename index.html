@@ -1,13 +1,314 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
-    <button id="openAdd">ADD LIST</button>
-    <div id="content"></div>
-    <script src="scripts/app.js"></script>
-    <script src="scripts/Component/list.js"></script>
-</body>
+<html>
+	<head>
+		<!-- Version: 30 / SVN revision: 44399 -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=0,minimal-ui">
+
+		<title></title>
+		<script type='application/javascript' src='js/lib/fastclick.js'></script>
+		<script	type="application/javascript">
+			window.addEventListener('load', function() {
+			new FastClick(document.body);
+			}, false);
+		</script>
+		<script type="text/javascript">var TOPBAR_URL = '//topbar.nasko.in/' </script>
+		<link href='//fonts.googleapis.com/css?family=Open+Sans:400,600,700&amp;subset=latin,cyrillic' rel='stylesheet' type='text/css' />
+		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/paddyMenu.css">
+		<link rel="stylesheet" type="text/css" href="css/sliderButton.css">
+		<link rel="stylesheet" href="css/fonts.css">
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+
+	<body style="overflow: hidden;">
+
+		<!-- <img id="landscapeMessage" src="img/screen_rotate1.png"/> -->
+		<img id="landscapeMessage" src="img/screen_rotate.jpg" style="z-index:10000"/>
+		<!-- <div id="debug"></div> -->
+
+		<div id="sliderFix" style="visibility:hidden;position:absolute;top:10px;"></div>
+
+		<div id="blackScreenFix" style="opacity:0"></div>
+		<div id="multitouch_dot">
+			<div class="dot_glow"></div>
+			<div class="dot"></div>
+		</div>
+		<!-- Viewport -->
+		<div id="viewport">
+			<div id="blackBarTop" style="height: 0px;"></div>
+			<div id="topbarDiv"></div>
+			<div id="multitouch_overlay"></div>
+			<div id="page_change_overlay" ></div>
+			<!-- PADDY MENU -->
+			<!-- <div id="top_menu" style="display: block;">
+				<div id="user_bar" class="preventDefault cf">
+					<a class="ub_button help preventDefault" id="help_btn"></a>
+					<div class="dopdown_menu showAfterStart">
+						<a class="ub_button dropdown_menu  preventDefault" id="settigs_btn" active="active" href="javascript:void(0)">
+							<span id="settigs_btn_extend"></span>
+						</a>
+					</div>
+					<a class="ub_button home preventDefault" href="" id="home_btn"></a>
+					<div class="playMode">
+						<a href="javascript: void(0)" id="playforreal"></a>
+					</div>
+					<div class="data showAfterStart cf" style="display: none;">
+						<div class="balance" data-value=""><h3>Balance:</h3><span class="blnc_val balanceValue"></span> </div>
+						<div class="bet" data-value=""><h3>Bet:</h3> <span class="betValue" id="bet_value"></span> </div>
+						<div class="free_bet" data-value=""><h3>Free Bet:</h3> <span class="fbc_value free_betValue"></span> </div>
+						<div class="paid" data-value=""><h3>Paid:</h3><span class="fbc_value paidValue"></span> </div>
+					</div>
+
+
+				</div>
+			</div> -->
+			<div id="dropdown_menu_bubble" class="dropdown_menu_bubble" style="display: none;">
+				<img src="img/dropdown_bubble_arrow.png" class="dropdown_bubble_arrow">
+				<ul id="dropdown_menu_bubble_list" class="dropdown_menu_bubble_list">
+					<li class="bubble_list_item">
+						<a href="#" class="preventDefault" id="buttonHistory">HISTORY</a>
+					</li>
+					<li class="bubble_list_item">
+						<a href="#" class="preventDefault" id="buttonPaytable">PAYTABLE</a>
+					</li>
+					<li class="bubble_list_item">
+						<a href="#" class="preventDefault" id="buttonOptions">OPTIONS</a>
+					</li>
+					<li class="bubble_list_item sounds sounds_on">
+						<a href="" class="preventDefault" class="bubble_list_item_sound_wrapper">SOUND ON</a>
+					</li>
+					<li class="bubble_list_item sounds sounds_off">
+						<a href="" class="preventDefault" class="bubble_list_item_sound_wrapper">SOUND OFF</a>
+					</li>
+				</ul>
+			</div>
+
+			<div id="rouletteWinbox" class="winbox hidden cf">
+				<div class="win_number_box"></div>
+				<div id="win_labels">
+					<p id="winbox_label"></p>
+					<p id="winbox_label_down"></p>
+				</div>
+			</div>
+
+			<!-- PRELOADER -->
+			<div id="dialog" class="errorDialog preventDefault" style="visibility:hidden; opacity: 0;">
+				<h1 id="title"></h1>
+				<p id="message"></p>
+				<!-- <button style="display:none" id="buttonOK" class="preventDefault">OK</button> -->
+				<a href="javascript: void(0)" id="errorDialogLinkArea" style="display:none" class="preventDefault"><span id="buttonOK" class="preventDefault">OK</span></a>
+			</div>
+			<section id="preloader">
+				<!-- <div id="preloader_main"> -->
+					<!-- <img src="img/preloader_logo.png" alt="PaddyPower Games Exclusive"> -->
+					<div id="loading">
+
+						<div id="progress" >
+							<div id="progress_inner" ></div>
+						</div>
+						<div id="percent" ></div>
+						<div id="connect" style="display: none;">CONNECTING TO SERVER</div>
+						<div id="buttonStart" class="preventDefault"></div>
+					</div>
+				<!-- </div> -->
+			</section>
+			<div id="msg_board" class="msg_board " style="">
+				<div class="dim"></div>
+				<div class="board">
+					<h1></h1>
+					<div class="text">
+						<span class="text">An error has occurred while connecting to the server<br></span>
+						<a id="msg_board_button" class="button"></a>
+						<a class="button cancel" id="msg_board_button_cancel" style="display: none;"></a>
+					</div>
+					<div class="bottom"></div>
+				</div>
+			</div>
+			<div class="slider preventDefault">
+				<ul class="list bettable_nav preventDefault">
+					<li class="bettable_nav_item preventDefault" id="buttonsContainer1" style="display:none">
+						<span class="nav_button big preventDefault" id="buttonClear" href="">	</span>
+						<span class="nav_button big preventDefault" id="buttonUndo" href=""></span>
+						<span class="nav_button big preventDefault" id="buttonRebet2" href="" style="display: none;"></span>
+						<span class="nav_button big nav_button_spin big_spin preventDefault" id="buttonSpin" href="javascript: void(0)"></span>
+					</li>
+
+
+					<li class="bettable_nav_item preventDefault" id="buttonsContainer2" style="display: none;">
+						<span class="nav_button big preventDefault" id="new_bet_btn" href=""></span>
+						<span class="nav_button big preventDefault" id="buttonRebet" href=""></span>
+						<span class="nav_button big nav_button_spin preventDefault" id="buttonRebetSpin" href="javascript: void(0)"></span>
+					</li>
+				</ul>
+				<div class="sliderHolder">
+					<div class="sliderDisplay left">
+						<section id="maingame">
+							<div id="wrapper"></div>
+							<div id="content" class="">
+								<div id="canvasOverlay" class="preventDefault"></div>
+								<div id="rouletteWheelBackground" class="rouletteWheelBackground"></div>
+								<canvas  class="wheel" id="myCanvas" width="490" height="250"></canvas>
+								<input type="text"  style="width: 200px;display:none" id="pickNumber" value="0">
+							</div>
+						</section>
+					</div>
+					<div class="sliderDisplay center">
+						<section class="bettable big"  id="bettable">
+							<div id="bettable_wrapper">
+								<div id="bets" >
+									<span id="movingChip" style="position: absolute; top: -1000px; left: -1000px; z-index: 9999; display: none; ">
+										<span id="movingChipLabel" class="chipLabel"></span>
+									</span>
+									<span id="bettableHover" class="hover" style="display: none;"></span>
+								</div>
+								<div class="betBgColors">
+									<div class="bettable_numbers"></div>
+								</div>
+								<div id="scrollerWrapper">
+										<div class="bettable_chips" id="scroller">
+											<ul class="list chips_list cf">
+											</ul>
+											<div class="betInfo">
+												<p id="minStake">Min bet: <span></span></p>
+												<p id="maxStake">Max bet: <span></span></p>
+											</div>
+										</div>
+
+									</div>
+							</div>
+
+						</section>
+					</div>
+					<div class="sliderDisplay right">
+						<div class="optionsWrapper">
+							<section class="history" id="history">
+								<div id="history_wrapper">
+									<div class="screen_header">
+										<button id="historyClose" class="button_history preventDefault">BACK</button>
+										<h1 class="history_heading">HISTORY</h1>
+									</div>
+									<div class="history_content">
+										<div class="history_content_numbers cf">
+											<ul id="history_numbers" class="list numbers_list cf">
+											</ul>
+										</div>
+										<span class="history_last">LAST SPIN</span>
+									</div>
+								</div>
+							</section>
+
+							<section class="options" id="options">
+								<div id="options_wrapper">
+									<div class="screen_header">
+										<button id="optionsClose" class="button_options preventDefault">BACK</button>
+										<h1 class="paytable_heading">OPTIONS</h1>
+									</div>
+									<div class="options_content cf">
+										<div class="options_content_lower cf">
+											<span class="options_label">TABLE COLOR:</span>
+											<ul class="options_list_colors cf">
+												<li class="list_colors_items">
+													<a href="#" data-color="green" class="table_color colors colors_green"></a>
+													<img src="img/selected_color.png" class="colors_selected" style="display: none;">
+												</li>
+												<li class="list_colors_items">
+													<a href="#" data-color="red" class="table_color colors colors_red"></a>
+													<img src="img/selected_color.png" class="colors_selected" style="display: none;">
+												</li>
+												<li class="list_colors_items">
+													<a href="#" data-color="blue" class="table_color colors colors_blue"></a>
+													<img src="img/selected_color.png" class="colors_selected" style="display: none;">
+												</li>
+												<li class="list_colors_items">
+													<a href="#" data-color="purple" class="table_color colors colors_purple"></a>
+													<img src="img/selected_color.png" class="colors_selected" style="display: none;">
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</section>
+							<section class="paytable"  id="paytable">
+								<div id="paytable_wrapper">
+									<div class="screen_header">
+										<button id="paytableClose" class="button_paytable preventDefault">BACK</button>
+										<h1 class="paytable_heading">PAYTABLE</h1>
+									</div>
+									<div class="paytable_content cf">
+										<table class="paytable_bets paytable_bets_inside">
+											<thead>
+												<tr>
+													<th class="paytable_bets_head" colspan="2">INSIDE BETS</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td class="paytable_bets_title">Straight</td>
+													<td class="paytable_bets_odds">35:1</td>
+												</tr>
+												<tr>
+													<td class="paytable_bets_title">Split</td>
+													<td class="paytable_bets_odds">17:1</td>
+												</tr>
+												<tr>
+													<td class="paytable_bets_title">Street</td>
+													<td class="paytable_bets_odds">11:1</td>
+												</tr>
+												<tr>
+													<td class="paytable_bets_title">Trio</td>
+													<td class="paytable_bets_odds">11:1</td>
+												</tr>
+												<tr>
+													<td class="paytable_bets_title">Corner</td>
+													<td class="paytable_bets_odds">8:1</td>
+												</tr>
+												<tr>
+													<td class="paytable_bets_title">Line</td>
+													<td class="paytable_bets_odds">5:1</td>
+												</tr>
+											</tbody>
+										</table>
+										<table class="paytable_bets">
+											<thead>
+												<tr>
+													<th class="paytable_bets_head" colspan="2">OUTSIDE BETS</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td class="paytable_bets_title">Column</td>
+													<td class="paytable_bets_odds">2:1</td>
+												</tr>
+												<tr>
+													<td class="paytable_bets_title">Dozen Bet</td>
+													<td class="paytable_bets_odds">2:1</td>
+												</tr>
+												<tr>
+													<td class="paytable_bets_title">Red / Black</td>
+													<td class="paytable_bets_odds">1:1</td>
+												</tr>
+												<tr>
+													<td class="paytable_bets_title">Even / Odd</td>
+													<td class="paytable_bets_odds">1:1</td>
+												</tr>
+												<tr>
+													<td class="paytable_bets_title">High / Low</td>
+													<td class="paytable_bets_odds">1:1</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</section>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="blackBarBottom" style="height: 0px;"></div>
+		</div>
+		<script language="JavaScript" data-main="js/main.js" src="js/lib/require.js"></script>
+		<!--<script src="http://markknol.github.io/console-log-viewer/console-log-viewer.js"></script>-->
+		</body>
+
 </html>
